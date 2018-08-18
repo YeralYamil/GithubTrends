@@ -16,6 +16,20 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.file` struct is generated, and contains static references to 1 files.
+  struct file {
+    /// Resource file `GithubProjectsSample.json`.
+    static let githubProjectsSampleJson = Rswift.FileResource(bundle: R.hostingBundle, name: "GithubProjectsSample", pathExtension: "json")
+    
+    /// `bundle.url(forResource: "GithubProjectsSample", withExtension: "json")`
+    static func githubProjectsSampleJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.githubProjectsSampleJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
@@ -31,6 +45,38 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 3 localization keys.
+    struct localizable {
+      /// Value: Error parsing JSON
+      static let errorParsingJSON = Rswift.StringResource(key: "Error parsing JSON", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: No Internet connection, please try again later
+      static let noInternetConnectionPleaseTryAgainLater = Rswift.StringResource(key: "No Internet connection, please try again later", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: There was a server error, please try again later
+      static let thereWasAServerErrorPleaseTryAgainLater = Rswift.StringResource(key: "There was a server error, please try again later", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: Error parsing JSON
+      static func errorParsingJSON(_: Void = ()) -> String {
+        return NSLocalizedString("Error parsing JSON", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: No Internet connection, please try again later
+      static func noInternetConnectionPleaseTryAgainLater(_: Void = ()) -> String {
+        return NSLocalizedString("No Internet connection, please try again later", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: There was a server error, please try again later
+      static func thereWasAServerErrorPleaseTryAgainLater(_: Void = ()) -> String {
+        return NSLocalizedString("There was a server error, please try again later", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
     }
     
     fileprivate init() {}
@@ -75,7 +121,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = ViewController
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "Main"

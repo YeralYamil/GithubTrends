@@ -1,3 +1,4 @@
 github "ReactiveCocoa/ReactiveSwift" ~> 3.0
 github "mac-cain13/R.swift.Library"
 github "ashleymills/Reachability.swift"
+github "ReactiveCocoa/ReactiveCocoa" ~> 7.0

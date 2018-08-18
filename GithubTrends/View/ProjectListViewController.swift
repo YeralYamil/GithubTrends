@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import ReactiveCocoa
+import ReactiveSwift
+import Result
 
-class ViewController: UIViewController {
-
+class ProjectListViewController: UIViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        bindViews()
+    }
+    
+    private func bindViews() {
+        
     }
 
     override func didReceiveMemoryWarning() {

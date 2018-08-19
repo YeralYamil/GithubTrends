@@ -22,6 +22,11 @@
 		5584D8202128D11E00578997 /* ProjectTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D81F2128D11E00578997 /* ProjectTableViewDataSource.swift */; };
 		5584D8272129157100578997 /* ProjectListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D8262129157100578997 /* ProjectListViewModelTests.swift */; };
 		5584D8292129209800578997 /* ProjectViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D8282129209800578997 /* ProjectViewModelTests.swift */; };
+		558EBF032129B3BF0071AAAB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558EBF022129B3BF0071AAAB /* Colors.xcassets */; };
+		558EBF052129CB740071AAAB /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EBF042129CB740071AAAB /* ProjectViewController.swift */; };
+		558EBF082129E96F0071AAAB /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EBF072129E96F0071AAAB /* URLRequest.swift */; };
+		558EBF0A2129ECA60071AAAB /* ReactiveURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EBF092129ECA60071AAAB /* ReactiveURLSession.swift */; };
+		558EBF0D212A08150071AAAB /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558EBF0C212A08150071AAAB /* UIImageView.swift */; };
 		55D217FD21263DD60068D09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D217FC21263DD60068D09E /* AppDelegate.swift */; };
 		55D217FF21263DD60068D09E /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D217FE21263DD60068D09E /* ProjectListViewController.swift */; };
 		55D2180221263DD60068D09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D2180021263DD60068D09E /* Main.storyboard */; };
@@ -61,6 +66,11 @@
 		5584D81F2128D11E00578997 /* ProjectTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewDataSource.swift; sourceTree = "<group>"; };
 		5584D8262129157100578997 /* ProjectListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModelTests.swift; sourceTree = "<group>"; };
 		5584D8282129209800578997 /* ProjectViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModelTests.swift; sourceTree = "<group>"; };
+		558EBF022129B3BF0071AAAB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		558EBF042129CB740071AAAB /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		558EBF072129E96F0071AAAB /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		558EBF092129ECA60071AAAB /* ReactiveURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveURLSession.swift; sourceTree = "<group>"; };
+		558EBF0C212A08150071AAAB /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		55D217F921263DD60068D09E /* GithubTrends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubTrends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D217FC21263DD60068D09E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D217FE21263DD60068D09E /* ProjectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				55D217FE21263DD60068D09E /* ProjectListViewController.swift */,
+				558EBF042129CB740071AAAB /* ProjectViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -147,6 +158,23 @@
 				5584D8282129209800578997 /* ProjectViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		558EBF062129E9630071AAAB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				558EBF072129E96F0071AAAB /* URLRequest.swift */,
+				558EBF092129ECA60071AAAB /* ReactiveURLSession.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		558EBF0B212A08040071AAAB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				558EBF0C212A08150071AAAB /* UIImageView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		55D217F021263DD60068D09E = {
@@ -205,6 +233,7 @@
 		55D2182C212646AF0068D09E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				558EBF0B212A08040071AAAB /* Extensions */,
 				5584D81E2128CE1300578997 /* DataSources */,
 				5584D8172128B3F800578997 /* Cells */,
 				5584D8162128B3EF00578997 /* ViewControllers */,
@@ -216,6 +245,7 @@
 		55D2182D212646B80068D09E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				558EBF062129E9630071AAAB /* Extensions */,
 				55D2183521264F4F0068D09E /* Service */,
 				55D21831212647550068D09E /* R.generated.swift */,
 				5572E1862127C4600047F22A /* Project.swift */,
@@ -249,6 +279,7 @@
 				55D2180821263DD80068D09E /* Info.plist */,
 				55D2183321264E210068D09E /* Localizable.strings */,
 				5584D812212893A100578997 /* GithubProjectsSample.json */,
+				558EBF022129B3BF0071AAAB /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -349,6 +380,7 @@
 				55D2180721263DD80068D09E /* LaunchScreen.storyboard in Resources */,
 				5584D813212893A100578997 /* GithubProjectsSample.json in Resources */,
 				55D2183421264E210068D09E /* Localizable.strings in Resources */,
+				558EBF032129B3BF0071AAAB /* Colors.xcassets in Resources */,
 				55D2180421263DD80068D09E /* Assets.xcassets in Resources */,
 				55D2180221263DD60068D09E /* Main.storyboard in Resources */,
 			);
@@ -405,13 +437,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D2183721264F5A0068D09E /* ServiceError.swift in Sources */,
+				558EBF0D212A08150071AAAB /* UIImageView.swift in Sources */,
 				5584D80C2128830500578997 /* DataRequesting.swift in Sources */,
 				55D217FF21263DD60068D09E /* ProjectListViewController.swift in Sources */,
 				55D217FD21263DD60068D09E /* AppDelegate.swift in Sources */,
 				5584D8202128D11E00578997 /* ProjectTableViewDataSource.swift in Sources */,
 				5584D81B2128B4B300578997 /* ProjectViewModel.swift in Sources */,
 				5584D8152128A70100578997 /* ProjectListViewModel.swift in Sources */,
+				558EBF0A2129ECA60071AAAB /* ReactiveURLSession.swift in Sources */,
 				5584D8192128B41700578997 /* ProjectTableViewCell.swift in Sources */,
+				558EBF082129E96F0071AAAB /* URLRequest.swift in Sources */,
+				558EBF052129CB740071AAAB /* ProjectViewController.swift in Sources */,
 				55D21839212650050068D09E /* GithubService.swift in Sources */,
 				55D21832212647550068D09E /* R.generated.swift in Sources */,
 				5572E1872127C4600047F22A /* Project.swift in Sources */,

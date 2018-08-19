@@ -17,12 +17,23 @@ class ProjectListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private let viewModel: ProjectListViewModelProtocol = ProjectListViewModel()
     private let tableViewDataSource = ProjectTableViewDataSource()
+    private var selectedViewModel: ProjectViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.dataSource = tableViewDataSource
+        configureTableView()
         bindViews()
+    }
+    
+    private func configureTableView() {
+        tableView.dataSource = tableViewDataSource
+        tableView.delegate = tableViewDataSource
+        
+        tableViewDataSource.itemSelected = { [unowned self] (viewModel: ProjectViewModelProtocol) -> Void in
+            self.selectedViewModel = viewModel
+            self.performSegue(withIdentifier: R.segue.projectListViewController.projectDetailSegue.identifier, sender: nil)
+        }
     }
     
     private func bindViews() {
@@ -49,14 +60,19 @@ class ProjectListViewController: UIViewController {
                 if let error = error {
                     print("Error while doing search: \(error)")
                 }
-                if let projects = projects,
-                    projects.count != 0 {
+                if let projects = projects {
                     self.tableViewDataSource.elements = projects
                     self.tableView.reloadData()
                 }
                 break
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let projectViewControler = segue.destination as? ProjectViewController,
+            let selectedViewModel = self.selectedViewModel else { return }
+        projectViewControler.viewModel = selectedViewModel
     }
 
     override func didReceiveMemoryWarning() {

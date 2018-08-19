@@ -16,6 +16,57 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.color` struct is generated, and contains static references to 5 colors.
+  struct color {
+    /// Color `bottom_half_background`.
+    static let bottom_half_background = Rswift.ColorResource(bundle: R.hostingBundle, name: "bottom_half_background")
+    /// Color `common`.
+    static let common = Rswift.ColorResource(bundle: R.hostingBundle, name: "common")
+    /// Color `description`.
+    static let description = Rswift.ColorResource(bundle: R.hostingBundle, name: "description")
+    /// Color `name`.
+    static let name = Rswift.ColorResource(bundle: R.hostingBundle, name: "name")
+    /// Color `text`.
+    static let text = Rswift.ColorResource(bundle: R.hostingBundle, name: "text")
+    
+    /// `UIColor(named: "bottom_half_background", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func bottom_half_background(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.bottom_half_background, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "common", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func common(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.common, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "description", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func description(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.description, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "name", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func name(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.name, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "text", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func text(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.text, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.file` struct is generated, and contains static references to 1 files.
   struct file {
     /// Resource file `GithubProjectsSample.json`.
@@ -30,10 +81,43 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `avatar`.
+    static let avatar = Rswift.ImageResource(bundle: R.hostingBundle, name: "avatar")
+    
+    /// `UIImage(named: "avatar", bundle: ..., traitCollection: ...)`
+    static func avatar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.avatar, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `projectCell`.
     static let projectCell: Rswift.ReuseIdentifier<ProjectTableViewCell> = Rswift.ReuseIdentifier(identifier: "projectCell")
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  struct segue {
+    /// This struct is generated for `ProjectListViewController`, and contains static references to 1 segues.
+    struct projectListViewController {
+      /// Segue identifier `projectDetailSegue`.
+      static let projectDetailSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ProjectListViewController, ProjectViewController> = Rswift.StoryboardSegueIdentifier(identifier: "projectDetailSegue")
+      
+      /// Optionally returns a typed version of segue `projectDetailSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func projectDetailSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ProjectListViewController, ProjectViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.projectListViewController.projectDetailSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
     
     fileprivate init() {}
   }
@@ -60,14 +144,28 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 3 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
     struct localizable {
+      /// Value: %@ forks
+      static let forks = Rswift.StringResource(key: "%@ forks", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: %@ stars
+      static let stars = Rswift.StringResource(key: "%@ stars", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Error parsing JSON
       static let errorParsingJSON = Rswift.StringResource(key: "Error parsing JSON", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: No Internet connection, please try again later
       static let noInternetConnectionPleaseTryAgainLater = Rswift.StringResource(key: "No Internet connection, please try again later", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: There was a server error, please try again later
       static let thereWasAServerErrorPleaseTryAgainLater = Rswift.StringResource(key: "There was a server error, please try again later", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: %@ forks
+      static func forks(_ value1: String) -> String {
+        return String(format: NSLocalizedString("%@ forks", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// Value: %@ stars
+      static func stars(_ value1: String) -> String {
+        return String(format: NSLocalizedString("%@ stars", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
       
       /// Value: Error parsing JSON
       static func errorParsingJSON(_: Void = ()) -> String {
@@ -110,8 +208,8 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try main.validate()
       try launchScreen.validate()
+      try main.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -135,7 +233,13 @@ struct _R: Rswift.Validatable {
       let name = "Main"
       
       static func validate() throws {
+        if UIKit.UIImage(named: "avatar") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'avatar' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "name") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'name' is used in storyboard 'Main', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "common") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'common' is used in storyboard 'Main', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "description") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'description' is used in storyboard 'Main', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "bottom_half_background") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'bottom_half_background' is used in storyboard 'Main', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "text") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'text' is used in storyboard 'Main', but couldn't be loaded.") }
         }
       }
       

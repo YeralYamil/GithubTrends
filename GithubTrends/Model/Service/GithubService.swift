@@ -31,11 +31,12 @@ struct GithubService: GithubServiceProtocol {
         let searchResult = searchTermSignal
             .map(makeSearchRequest)
             .skipNil()
+            .throttle(GithubService.throttleInterval, on: QueueScheduler.main)
             .flatMap(FlattenStrategy.latest) { (urlRequest: URLRequest) -> SignalProducer<(Data, URLResponse), AnyError> in
                 
                 return dataRequester
                     .data(with: urlRequest)
-                    .throttle(GithubService.throttleInterval, on: QueueScheduler.main)
+                    
                     .flatMapError { error -> SignalProducer<(Data, URLResponse), AnyError> in
                         print("Network error occurred: \(error)")
                         return SignalProducer.empty
@@ -62,14 +63,12 @@ struct GithubService: GithubServiceProtocol {
     }
     
     private func makeSearchRequest(_ searchTerm: String) -> URLRequest? {
-        
         guard let encodedSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return nil }
         let queryString = String(format: query, encodedSearchTerm)
         let urlString = "\(host)\(queryString)"
         
         print(urlString)
-        guard let url = URL(string: urlString) else { return nil }
-        let urlRequest = URLRequest(url: url)
+        let urlRequest = URLRequest.create(fromString: urlString)
         return urlRequest
     }
 }

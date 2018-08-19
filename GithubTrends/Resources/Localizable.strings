@@ -9,3 +9,5 @@
 "No Internet connection, please try again later" = "No Internet connection, please try again later";
 "There was a server error, please try again later" = "There was a server error, please try again later";
 "Error parsing JSON" = "Error parsing JSON";
+"%@ stars" = "%@ stars";
+"%@ forks" = "%@ forks";

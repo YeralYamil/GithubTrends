@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-class ProjectTableViewDataSource: NSObject, UITableViewDataSource {
+class ProjectTableViewDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var elements: [ProjectViewModelProtocol]? = nil
+    var itemSelected: ((_ viewModel: ProjectViewModelProtocol) -> Void)? = nil
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let elements = elements else { return 0 }
@@ -25,6 +26,12 @@ class ProjectTableViewDataSource: NSObject, UITableViewDataSource {
         guard let projectViewModel = elements?[indexPath.row] else { return cell }
         cell.configure(viewModel: projectViewModel)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let projectViewModel = elements?[indexPath.row] else { return }
+        itemSelected?(projectViewModel)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
    
 }

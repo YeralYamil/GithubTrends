@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-1003" y="42"/>
         </scene>
-        <!--Project List View Controller-->
+        <!--Github Trends-->
         <scene sceneID="LEn-P8-Bdu">
             <objects>
-                <viewController id="t8j-sm-1bE" customClass="ProjectListViewController" customModule="GithubTrends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Github Trends" id="t8j-sm-1bE" customClass="ProjectListViewController" customModule="GithubTrends" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="puq-JZ-oOk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,6 +42,52 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xVZ-dA-9Kh">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectCell" rowHeight="116" id="1S1-bX-LkZ" customClass="ProjectTableViewCell" customModule="GithubTrends" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1S1-bX-LkZ" id="PCL-Ud-AZr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UDL-bW-a7t">
+                                                    <rect key="frame" x="18" y="5" width="165.5" height="95"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="{ Project name }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOY-0H-Tro">
+                                                            <rect key="frame" x="0.0" y="0.0" width="127" height="48"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ Project stars count }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9C-g4-lZM">
+                                                            <rect key="frame" x="0.0" y="51" width="165.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{ Project description }" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxb-nt-cOu">
+                                                            <rect key="frame" x="0.0" y="74.5" width="165.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UDL-bW-a7t" secondAttribute="trailing" constant="10" id="MyG-rl-HjL"/>
+                                                <constraint firstItem="UDL-bW-a7t" firstAttribute="top" secondItem="PCL-Ud-AZr" secondAttribute="top" constant="5" id="bGQ-cN-a0Q"/>
+                                                <constraint firstItem="UDL-bW-a7t" firstAttribute="leading" secondItem="PCL-Ud-AZr" secondAttribute="leadingMargin" constant="3" id="krE-vh-GER"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UDL-bW-a7t" secondAttribute="bottom" constant="5" id="siZ-lx-cjH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="fxb-nt-cOu" id="14g-Vk-GXx"/>
+                                            <outlet property="nameLabel" destination="bOY-0H-Tro" id="T34-zF-Ri6"/>
+                                            <outlet property="starsCountLabel" destination="y9C-g4-lZM" id="XnX-Ld-XFY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,9 +102,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qyH-VE-qyB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9wa-O3-vJ8"/>
+                    <navigationItem key="navigationItem" title="Github Trends" id="9wa-O3-vJ8"/>
                     <connections>
                         <outlet property="searchBar" destination="xBw-k1-rtv" id="oYa-RE-TFW"/>
+                        <outlet property="tableView" destination="xVZ-dA-9Kh" id="Bb2-YX-qkA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8k-z2-eSV" userLabel="First Responder" sceneMemberID="firstResponder"/>

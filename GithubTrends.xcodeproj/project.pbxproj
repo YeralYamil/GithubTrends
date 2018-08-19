@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5572E1852127ADF60047F22A /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5572E1842127ADF60047F22A /* ReactiveCocoa.framework */; };
-		5572E1872127C4600047F22A /* GithubProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572E1862127C4600047F22A /* GithubProject.swift */; };
+		5572E1872127C4600047F22A /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5572E1862127C4600047F22A /* Project.swift */; };
 		5584D80A2128816D00578997 /* GithubServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D8092128816D00578997 /* GithubServiceTests.swift */; };
 		5584D80C2128830500578997 /* DataRequesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D80B2128830500578997 /* DataRequesting.swift */; };
 		5584D80D21288A8000578997 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D21823212644570068D09E /* ReactiveSwift.framework */; };
@@ -16,6 +16,12 @@
 		5584D80F212892CB00578997 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D21829212645F40068D09E /* Rswift.framework */; };
 		5584D811212892E200578997 /* RswiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D810212892E200578997 /* RswiftTests.swift */; };
 		5584D813212893A100578997 /* GithubProjectsSample.json in Resources */ = {isa = PBXBuildFile; fileRef = 5584D812212893A100578997 /* GithubProjectsSample.json */; };
+		5584D8152128A70100578997 /* ProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D8142128A70100578997 /* ProjectListViewModel.swift */; };
+		5584D8192128B41700578997 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D8182128B41700578997 /* ProjectTableViewCell.swift */; };
+		5584D81B2128B4B300578997 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D81A2128B4B300578997 /* ProjectViewModel.swift */; };
+		5584D8202128D11E00578997 /* ProjectTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D81F2128D11E00578997 /* ProjectTableViewDataSource.swift */; };
+		5584D8272129157100578997 /* ProjectListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D8262129157100578997 /* ProjectListViewModelTests.swift */; };
+		5584D8292129209800578997 /* ProjectViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584D8282129209800578997 /* ProjectViewModelTests.swift */; };
 		55D217FD21263DD60068D09E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D217FC21263DD60068D09E /* AppDelegate.swift */; };
 		55D217FF21263DD60068D09E /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D217FE21263DD60068D09E /* ProjectListViewController.swift */; };
 		55D2180221263DD60068D09E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D2180021263DD60068D09E /* Main.storyboard */; };
@@ -44,11 +50,17 @@
 
 /* Begin PBXFileReference section */
 		5572E1842127ADF60047F22A /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		5572E1862127C4600047F22A /* GithubProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubProject.swift; sourceTree = "<group>"; };
+		5572E1862127C4600047F22A /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		5584D8092128816D00578997 /* GithubServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubServiceTests.swift; sourceTree = "<group>"; };
 		5584D80B2128830500578997 /* DataRequesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequesting.swift; sourceTree = "<group>"; };
 		5584D810212892E200578997 /* RswiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RswiftTests.swift; sourceTree = "<group>"; };
 		5584D812212893A100578997 /* GithubProjectsSample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GithubProjectsSample.json; sourceTree = "<group>"; };
+		5584D8142128A70100578997 /* ProjectListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModel.swift; sourceTree = "<group>"; };
+		5584D8182128B41700578997 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		5584D81A2128B4B300578997 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		5584D81F2128D11E00578997 /* ProjectTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewDataSource.swift; sourceTree = "<group>"; };
+		5584D8262129157100578997 /* ProjectListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewModelTests.swift; sourceTree = "<group>"; };
+		5584D8282129209800578997 /* ProjectViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModelTests.swift; sourceTree = "<group>"; };
 		55D217F921263DD60068D09E /* GithubTrends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubTrends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D217FC21263DD60068D09E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D217FE21263DD60068D09E /* ProjectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +116,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5584D8162128B3EF00578997 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				55D217FE21263DD60068D09E /* ProjectListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5584D8172128B3F800578997 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5584D8182128B41700578997 /* ProjectTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5584D81E2128CE1300578997 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				5584D81F2128D11E00578997 /* ProjectTableViewDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		5584D8252129154B00578997 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5584D8262129157100578997 /* ProjectListViewModelTests.swift */,
+				5584D8282129209800578997 /* ProjectViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		55D217F021263DD60068D09E = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +182,7 @@
 		55D2181021263DD80068D09E /* GithubTrendsTests */ = {
 			isa = PBXGroup;
 			children = (
+				5584D8252129154B00578997 /* ViewModel */,
 				5584D8082128815800578997 /* Model */,
 				55D2181121263DD80068D09E /* GithubTrendsTests.swift */,
 				55D2181321263DD80068D09E /* Info.plist */,
@@ -159,7 +205,9 @@
 		55D2182C212646AF0068D09E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55D217FE21263DD60068D09E /* ProjectListViewController.swift */,
+				5584D81E2128CE1300578997 /* DataSources */,
+				5584D8172128B3F800578997 /* Cells */,
+				5584D8162128B3EF00578997 /* ViewControllers */,
 				55D2182F212646C40068D09E /* Storyboards */,
 			);
 			path = View;
@@ -170,7 +218,7 @@
 			children = (
 				55D2183521264F4F0068D09E /* Service */,
 				55D21831212647550068D09E /* R.generated.swift */,
-				5572E1862127C4600047F22A /* GithubProject.swift */,
+				5572E1862127C4600047F22A /* Project.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +226,8 @@
 		55D2182E212646BD0068D09E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5584D8142128A70100578997 /* ProjectListViewModel.swift */,
+				5584D81A2128B4B300578997 /* ProjectViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,9 +408,13 @@
 				5584D80C2128830500578997 /* DataRequesting.swift in Sources */,
 				55D217FF21263DD60068D09E /* ProjectListViewController.swift in Sources */,
 				55D217FD21263DD60068D09E /* AppDelegate.swift in Sources */,
+				5584D8202128D11E00578997 /* ProjectTableViewDataSource.swift in Sources */,
+				5584D81B2128B4B300578997 /* ProjectViewModel.swift in Sources */,
+				5584D8152128A70100578997 /* ProjectListViewModel.swift in Sources */,
+				5584D8192128B41700578997 /* ProjectTableViewCell.swift in Sources */,
 				55D21839212650050068D09E /* GithubService.swift in Sources */,
 				55D21832212647550068D09E /* R.generated.swift in Sources */,
-				5572E1872127C4600047F22A /* GithubProject.swift in Sources */,
+				5572E1872127C4600047F22A /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,8 +422,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5584D8272129157100578997 /* ProjectListViewModelTests.swift in Sources */,
 				5584D80A2128816D00578997 /* GithubServiceTests.swift in Sources */,
 				55D2181221263DD80068D09E /* GithubTrendsTests.swift in Sources */,
+				5584D8292129209800578997 /* ProjectViewModelTests.swift in Sources */,
 				5584D811212892E200578997 /* RswiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

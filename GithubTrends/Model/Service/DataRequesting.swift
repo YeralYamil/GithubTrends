@@ -14,6 +14,4 @@ protocol DataRequesting {
     func data(with request: URLRequest) -> ReactiveSwift.SignalProducer<(Data, URLResponse), AnyError>
 }
 
-extension Reactive: DataRequesting where Base == URLSession {
-    
-}
+extension Reactive: DataRequesting where Base == URLSession { }

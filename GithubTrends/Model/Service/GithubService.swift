@@ -11,56 +11,63 @@ import ReactiveSwift
 import Result
 
 protocol GithubServiceProtocol {
-    func searchProjects(searchTermSignal: Signal<String, NoError>, dataRequester: DataRequesting) -> Signal<([GithubProject], ServiceError?), AnyError>
+    func searchProjects(searchTermSignal: Signal<String, NoError>, dataRequester: DataRequesting) -> Signal<([Project]?, ServiceError?), AnyError>
 }
 
 extension GithubServiceProtocol {
-    func searchProjects(searchTermSignal: Signal<String, NoError>, dataRequester: DataRequesting = URLSession.shared.reactive) -> Signal<([GithubProject], ServiceError?), AnyError> {
-        return searchProjects(searchTermSignal: searchTermSignal, dataRequester: dataRequester)
+    func searchProjects(searchTermSignal: Signal<String, NoError>) -> Signal<([Project]?, ServiceError?), AnyError> {
+        return searchProjects(searchTermSignal: searchTermSignal, dataRequester: URLSession.shared.reactive)
     }
 }
-
 
 struct GithubService: GithubServiceProtocol {
     
     private let host = "https://api.github.com/search/repositories?"
     private let query = "q=%@&sort=stars&order=desc"
-    private static let numberOfRetries = 2
+    private static let throttleInterval = 1.0
     
-    func searchProjects(searchTermSignal: Signal<String, NoError>, dataRequester: DataRequesting) -> Signal<([GithubProject], ServiceError?), AnyError> {
+    func searchProjects(searchTermSignal: Signal<String, NoError>, dataRequester: DataRequesting = URLSession.shared.reactive) -> Signal<([Project]?, ServiceError?), AnyError> {
         
-        let searchResult = searchTermSignal.flatMap(FlattenStrategy.latest) { (searchTerm: String) -> SignalProducer<(Data, URLResponse), AnyError> in
-            
-            guard let request = self.makeSearchRequest(searchTerm: searchTerm) else { return SignalProducer.empty }
-            let query = dataRequester
-                .data(with: request)
-                .retry(upTo: GithubService.numberOfRetries)
-                .flatMapError { error -> SignalProducer<(Data, URLResponse), AnyError> in
-                    print("Network error occurred: \(error)")
-                    return SignalProducer.empty
+        let searchResult = searchTermSignal
+            .map(makeSearchRequest)
+            .skipNil()
+            .flatMap(FlattenStrategy.latest) { (urlRequest: URLRequest) -> SignalProducer<(Data, URLResponse), AnyError> in
+                
+                return dataRequester
+                    .data(with: urlRequest)
+                    .throttle(GithubService.throttleInterval, on: QueueScheduler.main)
+                    .flatMapError { error -> SignalProducer<(Data, URLResponse), AnyError> in
+                        print("Network error occurred: \(error)")
+                        return SignalProducer.empty
                 }
-            
-            return query
-        }
-        .map { (data, response) -> ([GithubProject], ServiceError?) in
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            guard let githubResult = try? decoder.decode(GithubResult.self, from: data) else {
-                return ([], ServiceError.jsonParsingError)
+                
             }
-            
-            return (githubResult.items, nil)
-        }
+            .map(parseResponse)
         
         return searchResult
     }
     
-    private func makeSearchRequest(searchTerm: String) -> URLRequest? {
+    private func parseResponse(data: Data, response: URLResponse) -> ([Project]?, ServiceError?) {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        guard let githubResult = try? decoder.decode(GithubResult.self, from: data) else {
+            return (nil, ServiceError.jsonParsingError)
+        }
+        if let message = githubResult.message {
+            return (nil, ServiceError.custom(message))
+        }
+    
+        return (githubResult.items, nil)
+    }
+    
+    private func makeSearchRequest(_ searchTerm: String) -> URLRequest? {
         
         guard let encodedSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return nil }
         let queryString = String(format: query, encodedSearchTerm)
         let urlString = "\(host)\(queryString)"
         
+        print(urlString)
         guard let url = URL(string: urlString) else { return nil }
         let urlRequest = URLRequest(url: url)
         return urlRequest

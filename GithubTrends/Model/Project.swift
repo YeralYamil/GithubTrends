@@ -9,13 +9,14 @@
 import Foundation
 
 struct GithubResult: Codable {
-    var items: [GithubProject]
+    var items: [Project]?
+    var message: String?
 }
 
-struct GithubProject: Codable {
+struct Project: Codable {
     
-    var name: String
-    var description: String
+    var name: String?
+    var description: String?
     var forks: Int
     var stargazersCount: Int?
     var watchersCount: Int?
@@ -25,5 +26,5 @@ struct GithubProject: Codable {
 
 struct Owner: Codable {
     var avatarUrl: String?
-    var login: String
+    var login: String?
 }

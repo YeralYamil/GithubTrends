@@ -29,7 +29,7 @@
               },
               "private": false,
               "html_url": "https://github.com/justjavac/free-programming-books-zh_CN",
-              "description": ":books: 免费的计算机编程类中文书籍，欢迎投稿",
+              "description": null,
               "fork": false,
               "url": "https://api.github.com/repos/justjavac/free-programming-books-zh_CN",
               "forks_url": "https://api.github.com/repos/justjavac/free-programming-books-zh_CN/forks",
@@ -91,7 +91,7 @@
               "open_issues_count": 148,
               "license": {
               "key": "gpl-3.0",
-              "name": "GNU General Public License v3.0",
+              "name": null,
               "spdx_id": "GPL-3.0",
               "url": "https://api.github.com/licenses/gpl-3.0",
               "node_id": "MDc6TGljZW5zZTk="

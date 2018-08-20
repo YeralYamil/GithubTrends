@@ -41,7 +41,7 @@ class ProjectListViewController: UIViewController {
         let input = ProjectListViewModel.Input(searchText: searchBar.reactive.continuousTextValues.skipNil().filter{ $0.count > 2 })  //Just make search after 3 characters to avoid going over the search limit soon
         let output = viewModel.transform(input: input)
         
-        output.projects.observe { event in
+        output.projects.observe { [weak self] event in
             
             switch (event) {
             case .completed:
@@ -61,8 +61,8 @@ class ProjectListViewController: UIViewController {
                     print("Error while doing search: \(error)")
                 }
                 if let projects = projects {
-                    self.tableViewDataSource.elements = projects
-                    self.tableView.reloadData()
+                    self?.tableViewDataSource.elements = projects
+                    self?.tableView.reloadData()
                 }
                 break
             }

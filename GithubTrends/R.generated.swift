@@ -208,8 +208,8 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try launchScreen.validate()
       try main.validate()
+      try launchScreen.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -235,11 +235,11 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "avatar") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'avatar' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
+          if UIKit.UIColor(named: "text") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'text' is used in storyboard 'Main', but couldn't be loaded.") }
           if UIKit.UIColor(named: "name") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'name' is used in storyboard 'Main', but couldn't be loaded.") }
           if UIKit.UIColor(named: "common") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'common' is used in storyboard 'Main', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "description") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'description' is used in storyboard 'Main', but couldn't be loaded.") }
           if UIKit.UIColor(named: "bottom_half_background") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'bottom_half_background' is used in storyboard 'Main', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "text") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'text' is used in storyboard 'Main', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "description") == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'description' is used in storyboard 'Main', but couldn't be loaded.") }
         }
       }
       

@@ -35,7 +35,7 @@ class ProjectViewModelTests: XCTestCase {
         
         //Then
         XCTAssertEqual(output.name.value, name)
-        XCTAssertTrue(output.description.value == "")
+        XCTAssertTrue(output.description.value == nil)
         XCTAssertEqual(output.starsCount.value, "10")
         
     }

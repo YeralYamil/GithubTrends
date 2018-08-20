@@ -98,7 +98,10 @@ class GithubServiceTests: XCTestCase {
 
 //MARK: Mocks
 struct DataProvidingMock: DataRequesting {
-    
+    func data(urlString: String) -> SignalProducer<Data?, AnyError> {
+        return SignalProducer.empty
+    }
+
     let jsonData: Data
     
     func data(with request: URLRequest) -> ReactiveSwift.SignalProducer<(Data, URLResponse), AnyError> {

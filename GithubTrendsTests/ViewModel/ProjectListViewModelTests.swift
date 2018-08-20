@@ -83,6 +83,10 @@ class ProjectListViewModelTests: XCTestCase {
     }
     
     struct GithubServiceMock: GithubServiceProtocol {
+        func searchReadme(login: String, projectName: String, dataRequester: DataRequesting) -> SignalProducer<(Readme?, ServiceError?), AnyError> {
+            return SignalProducer.empty
+        }
+        
         let signalPipe = Signal<([Project]?, ServiceError?), AnyError>.pipe()
         
         func searchProjects(searchTermSignal: Signal<String, NoError>, dataRequester: DataRequesting = URLSession.shared.reactive) -> Signal<([Project]?, ServiceError?), AnyError> {

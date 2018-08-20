@@ -46,14 +46,17 @@ extension ProjectViewModel {
                 .data(urlString: avatarUrlString)
         }
         
-        /*func getReadmeContent(dataRequester: DataRequesting = URLSession.shared.reactive) -> SignalProducer<String?, AnyError> {
-            return dataRequester
-                .data(urlString: "")
-                .skipNil()
-                .map({ (data) -> String? in
-                    return String(data: data, encoding: .utf32)
+        func getReadmeContent(githubService: GithubServiceProtocol = GithubService(), dataRequester: DataRequesting = URLSession.shared.reactive) -> SignalProducer<Readme?, AnyError> {
+            
+            guard let login = userName.value,
+                let projectName = name.value else { return SignalProducer.empty }
+            
+            return githubService
+                .searchReadme(login: login, projectName: projectName)
+                .map({ (readme, error) -> Readme? in
+                    return readme
                 })
-        }*/
+        }
         
     }
     

@@ -10,6 +10,7 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 import Result
+import WebKit
 
 class ProjectViewController: UIViewController {
     
@@ -17,7 +18,7 @@ class ProjectViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var starsForksSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var readmeContentLabel: UILabel!
+    @IBOutlet weak var readmeWebView: WKWebView!
     
     private let starCountSegmentIndex = 0
     private let forkCountSegmentIndex = 1
@@ -27,7 +28,7 @@ class ProjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViews()
-        avatarImageView.circular()
+        self.avatarImageView.circular()
         // Do any additional setup after loading the view.
     }
     
@@ -47,6 +48,17 @@ class ProjectViewController: UIViewController {
                 guard let image = event.value else { return }
                 self?.avatarImageView.image = image
             }
+        
+        viewModel.output.getReadmeContent()
+            .skipNil()
+            .observe(on: UIScheduler())
+            .take(first: 1)
+            .start { [weak self] (event) -> Void in
+                guard let content = event.value,
+                    let downloadUrl = content.downloadUrl,
+                    let request = URLRequest.create(fromString: downloadUrl) else { return }
+                self?.readmeWebView.load(request)
+        }
     }
     
     func dataToImage(_ data: Data) -> UIImage? {
@@ -56,5 +68,12 @@ class ProjectViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { [weak self] (_) in
+            self?.avatarImageView.circular()
+        }
     }
 }

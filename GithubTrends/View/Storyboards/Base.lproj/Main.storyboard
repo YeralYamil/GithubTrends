@@ -141,7 +141,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="mr0-FD-uYs">
                                                         <rect key="frame" x="115.5" y="15" width="144.5" height="193.5"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="g17-w3-15D">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="g17-w3-15D">
                                                                 <rect key="frame" x="7.5" y="0.0" width="130" height="130"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="g17-w3-15D" secondAttribute="height" multiplier="1:1" id="Z9v-Of-9mZ"/>
@@ -181,34 +181,35 @@
                                                 </segments>
                                                 <color key="tintColor" name="common"/>
                                             </segmentedControl>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="nvK-MQ-WOX">
-                                                <rect key="frame" x="30" y="322" width="315" height="36"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Readme.rm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4p-a0-bdu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="30"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51K-MG-ClB">
-                                                        <rect key="frame" x="0.0" y="36" width="0.0" height="0.0"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Readme.rm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4p-a0-bdu">
+                                                <rect key="frame" x="30" y="317" width="135" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gch-Bd-sq1">
+                                                <rect key="frame" x="30" y="355" width="315" height="222"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <wkWebViewConfiguration key="configuration">
+                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                    <wkPreferences key="preferences"/>
+                                                </wkWebViewConfiguration>
+                                            </wkWebView>
                                         </subviews>
                                         <color key="backgroundColor" name="bottom_half_background"/>
                                         <constraints>
                                             <constraint firstItem="PsD-x9-CEa" firstAttribute="top" secondItem="skO-Rd-RBZ" secondAttribute="bottom" constant="-12.5" id="0Fx-wg-Szi"/>
                                             <constraint firstItem="skO-Rd-RBZ" firstAttribute="top" secondItem="CiB-Dz-t0R" secondAttribute="top" id="3Qt-hs-jvs"/>
                                             <constraint firstItem="PsD-x9-CEa" firstAttribute="centerX" secondItem="CiB-Dz-t0R" secondAttribute="centerX" id="4GO-kJ-Bq0"/>
-                                            <constraint firstItem="nvK-MQ-WOX" firstAttribute="leading" secondItem="CiB-Dz-t0R" secondAttribute="leading" constant="30" id="6dj-NF-QBW"/>
-                                            <constraint firstAttribute="trailing" secondItem="nvK-MQ-WOX" secondAttribute="trailing" constant="30" id="NgG-p0-9jR"/>
-                                            <constraint firstItem="nvK-MQ-WOX" firstAttribute="top" secondItem="PsD-x9-CEa" secondAttribute="bottom" constant="13" id="RJn-2k-oIP"/>
+                                            <constraint firstItem="Gch-Bd-sq1" firstAttribute="top" secondItem="o4p-a0-bdu" secondAttribute="bottom" constant="8" id="JdI-fV-nBm"/>
+                                            <constraint firstItem="o4p-a0-bdu" firstAttribute="top" secondItem="PsD-x9-CEa" secondAttribute="bottom" constant="8" id="Qub-tz-eVN"/>
                                             <constraint firstAttribute="trailing" secondItem="skO-Rd-RBZ" secondAttribute="trailing" id="T4t-YX-p0n"/>
+                                            <constraint firstItem="o4p-a0-bdu" firstAttribute="leading" secondItem="CiB-Dz-t0R" secondAttribute="leading" constant="30" id="TbS-sC-oiS"/>
                                             <constraint firstItem="skO-Rd-RBZ" firstAttribute="leading" secondItem="CiB-Dz-t0R" secondAttribute="leading" id="aO8-R8-BHe"/>
+                                            <constraint firstItem="Gch-Bd-sq1" firstAttribute="leading" secondItem="CiB-Dz-t0R" secondAttribute="leading" constant="30" id="kfn-Dg-pWH"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gch-Bd-sq1" secondAttribute="trailing" constant="30" id="lbH-rh-4Qt"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gch-Bd-sq1" secondAttribute="bottom" constant="26" id="noe-eo-5Nd"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="o4p-a0-bdu" secondAttribute="trailing" constant="20" symbolic="YES" id="uCU-2E-ym0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -235,7 +236,7 @@
                     <connections>
                         <outlet property="avatarImageView" destination="g17-w3-15D" id="hAe-2U-5DE"/>
                         <outlet property="descriptionLabel" destination="KK7-qb-PXx" id="WbO-pl-dJa"/>
-                        <outlet property="readmeContentLabel" destination="51K-MG-ClB" id="F3U-dI-Keg"/>
+                        <outlet property="readmeWebView" destination="Gch-Bd-sq1" id="sWk-Qi-s0g"/>
                         <outlet property="starsForksSegmentedControl" destination="PsD-x9-CEa" id="qiU-DA-l9M"/>
                         <outlet property="userNameLabel" destination="P5T-rn-AbW" id="uur-RQ-Djp"/>
                     </connections>
